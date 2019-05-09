@@ -8,3 +8,9 @@ CREATE TABLE "person" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+CREATE TABLE "user_type" (
+	"id" SERIAL PRIMARY KEY,
+	"primary_user" BOOLEAN DEFAULT false, 
+	"seconday_user" BOOLEAN DEFAULT false,
+	"passive_user" BOOLEAN DEFAULT false
+	);
