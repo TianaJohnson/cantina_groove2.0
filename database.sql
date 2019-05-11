@@ -32,3 +32,13 @@ CREATE TABLE "user_info" (
 	"user-title" INTEGER REFERENCES "user-title",
 	"user-type-id" INTEGER REFERENCES "user_type"
 	);
+
+CREATE TABLE "client_contact_info" (
+	"id" SERIAL PRIMARY KEY,
+	"full_name" VARCHAR (100) NOT NULL,
+	"pro_nouns" TEXT,
+	"email" VARCHAR (200),
+	"phone_number" VARCHAR (20) NOT NULL,
+	"cust_notes" VARCHAR (1000),
+	"is_active" BOOLEAN DEFAULT TRUE,
+	"date_activated" DATE NOT NULL DEFAULT CURRENT_DATE);
