@@ -1,8 +1,5 @@
 
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
+-- Cantina_Groove2.0 --
 
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
@@ -32,7 +29,7 @@ CREATE TABLE "user_info" (
 	"user-title" INTEGER REFERENCES "user-title",
 	"user-type-id" INTEGER REFERENCES "user_type"
 	);
-
+	
 CREATE TABLE "client_contact_info" (
 	"id" SERIAL PRIMARY KEY,
 	"full_name" VARCHAR (100) NOT NULL,
@@ -42,16 +39,29 @@ CREATE TABLE "client_contact_info" (
 	"cust_notes" VARCHAR (1000),
 	"is_active" BOOLEAN DEFAULT TRUE,
 	"date_activated" DATE NOT NULL DEFAULT CURRENT_DATE);
+	
+CREATE TABLE "builder"(
+	"id" SERIAL PRIMARY KEY,
+	"title_id" INTEGER REFERENCES "user-title",
+	"user_type" INTEGER REFERENCES "user_type"
+	);
+	
+CREATE TABLE "fitter" (
+	"id" SERIAL PRIMARY KEY,
+	"title_id" INTEGER REFERENCES "user-title",
+	"user_type" INTEGER REFERENCES "user_type"
+	);
 
-	-- may need to be edited 
-	CREATE TABLE "project"(
+-- needs to be completed 
+CREATE TABLE "project"(
 	"id" SERIAL PRIMARY KEY,
 	"client_id" INTEGER REFERENCES "client_contact_info",
-	
+	"builder_id" INTEGER REFERENCES "builder",
+	"fitter_id" INTEGER REFERENCES "fitter"
 	);
 
 CREATE TABLE "rider_metrix" (
-	"id" BINARY NOT NULL AUTO_INCREMENT,
+	"id" SERIAL PRIMARY KEY,
 	"rider_height" TEXT NOT NULL,
 	"pubic_bone_height/inseam" TEXT NOT NULL,
 	"method_for_inseam_measurement" TEXT NOT NULL,
@@ -66,5 +76,47 @@ CREATE TABLE "rider_metrix" (
 	"shoulder_width_os_to_os" TEXT NOT NULL,
 	"cycling_shoe_size" TEXT NOT NULL,
 	"distance_toe_to_center_of_cleat" TEXT NOT NULL,
-	"project_id" NTEGER REFERENCES "project"
+	"project_id" INTEGER REFERENCES "project"
+);
+
+CREATE TABLE "erlevant_current_bike" (
+	"id" SERIAL PRIMARY KEY,
+	"saddle_height" TEXT NOT NULL,
+	"saddle_offset" TEXT NOT NULL,
+	"reach_sn_hbc" TEXT NOT NULL,
+	"reach_sn_grip" TEXT NOT NULL,
+	"hb_drop/rise" TEXT NOT NULL,
+	"hb_width" TEXT NOT NULL,
+	"hb_flare/sweep" TEXT NOT NULL,
+	"hb_lever" TEXT NOT NULL,
+	"hb_drop_cc" TEXT NOT NULL,
+	"saddle_length" TEXT NOT NULL,
+	"saddle_nose_width" TEXT NOT NULL,
+	"saddle_tail_width" TEXT NOT NULL,
+	"saddle_tilt" TEXT NOT NULL,
+	"pedal_model/style" TEXT NOT NULL,
+	"crank_length" TEXT NOT NULL,
+	"q_factor" TEXT NOT NULL,
+	"project_id" INTEGER REFERENCES "project"
+);
+
+CREATE TABLE "size_cycle_data" (
+	"id" SERIAL PRIMARY KEY,
+	"saddle_height" TEXT NOT NULL,
+	"saddle_offset" TEXT NOT NULL,
+	"reach_sn_hbc" TEXT NOT NULL,
+	"reach_sn_grip" TEXT NOT NULL,
+	"hb_drop/rise" TEXT NOT NULL,
+	"grip_drop/rise" TEXT NOT NULL,
+	"hb_width" TEXT NOT NULL,
+	"hb_flare/sweep" TEXT NOT NULL,
+	"hb_lever" TEXT NOT NULL,
+	"hb_drop_cc" TEXT NOT NULL,
+	"saddle_length" TEXT NOT NULL,
+	"saddle_nose_width" TEXT NOT NULL,
+	"saddle_tail_width" TEXT NOT NULL,
+	"pedal_model/style" TEXT NOT NULL,
+	"crank_length" TEXT NOT NULL,
+	"q_factor" TEXT NOT NULL,
+	"project_id" INTEGER REFERENCES "project"
 );
