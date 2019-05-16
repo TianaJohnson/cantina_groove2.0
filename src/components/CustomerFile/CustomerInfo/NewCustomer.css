@@ -1,8 +1,9 @@
 .add_custpage {
+    background-color: coral;
     /* margin: 20px; */
     /* background-image: url("/images/workbench.JPG"); */
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
     margin-Top: auto;
 }
 .add_card {

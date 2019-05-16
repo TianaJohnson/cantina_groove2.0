@@ -26,7 +26,7 @@ class UserPage extends Component {
   // eventually will display customer name and project file name
   render() {
     return (
-        <div className="admin_text">
+        <div className="user_page_main">
   <UserHeader match={this.props.match} history={this.props.history}/>
   <h1>Customers</h1>
   <Button variant="contained"
