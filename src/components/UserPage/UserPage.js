@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 // import AdminRow from './AdminRow';
 import UserHeader from './../UserHeader/UserHeader';
 // import QrComponent  from './../QrComponent/QrComponent';
-import NewCustomer from '../CustomerFile/CustomerInfo/NewCustomer';
+// import NewCustomer from '../CustomerFile/CustomerInfo/NewCustomer';
 
 
 //Class constructor
@@ -43,5 +43,4 @@ class UserPage extends Component {
 const mapStateToProps = reduxStore => {
   return { reduxStore: reduxStore };
 }
-{/* // this allows us to use <App /> in index.js */}
 export default connect(mapStateToProps)(UserPage);

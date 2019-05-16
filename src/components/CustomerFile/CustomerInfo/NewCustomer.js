@@ -2,27 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-
-
-// using this as a template //
-// const styles = theme => ({
-//   container: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   textField: {
-//     marginLeft: theme.spacing.unit,
-//     marginRight: theme.spacing.unit,
-//   },
-//   dense: {
-//     marginTop: 16,
-//   },
-//   menu: {
-//     width: 200,
-//   },
-// });
+import './NewCustomer.css';
 
 
 class NewCustomer extends Component {
