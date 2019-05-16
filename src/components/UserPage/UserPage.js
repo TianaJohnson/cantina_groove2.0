@@ -1,36 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import './UserPage.css';
+// import Table from '@material-ui/core/Table';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableCell from '@material-ui/core/TableCell';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableRow from '@material-ui/core/TableRow';
+// import Paper from '@material-ui/core/Paper';
+// import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
+// import AdminRow from './AdminRow';
+import UserHeader from './../UserHeader/UserHeader';
+// import QrComponent  from './../QrComponent/QrComponent';
+import NewCustomer from '../CustomerFile/CustomerInfo/NewCustomer';
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
-const UserPage = (props) => (
-  <div className="user_page_main">
-    <h1 id="welcome">
-      Welcome, { props.user.username }!
-    </h1>
-    {/* <p>Your ID is: {props.user.id}</p> */}
-    <p>This page will show a snap shot of projects + status of said project.</p>
-  </div>
-  <div>
-    <Button variant="contained"
+
+//Class constructor
+class UserPage extends Component {
+   
+
+  // on click of btn, sends user to new customer page
+  addNew = () => {
+    this.props.history.push('/newcustomer');
+  }
+  // table display of all customers currentlt 02/16/19
+  // eventually will display customer name and project file name
+  render() {
+    return (
+        <div className="admin_text">
+  <UserHeader match={this.props.match} history={this.props.history}/>
+  <h1>Customers</h1>
+  <Button variant="contained"
                color="primary"
-              //  onClick={this.addNew}
+               onClick={this.addNew}
                style={{ margin: 10 }}>
                Add New Customer
                </Button>
-  </div>
-);
+  </div> 
+    )
+  }
 
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
-const mapStateToProps = state => ({
-  user: state.user,
-});
-
-// this allows us to use <App /> in index.js
+}
+const mapStateToProps = reduxStore => {
+  return { reduxStore: reduxStore };
+}
+{/* // this allows us to use <App /> in index.js */}
 export default connect(mapStateToProps)(UserPage);
