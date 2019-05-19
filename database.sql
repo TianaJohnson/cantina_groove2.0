@@ -1,6 +1,4 @@
-
 -- Cantina_Groove2.0 --
-
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
@@ -57,7 +55,35 @@ CREATE TABLE "project"(
 	"id" SERIAL PRIMARY KEY,
 	"client_id" INTEGER REFERENCES "client_contact_info",
 	"builder_id" INTEGER REFERENCES "builder",
-	"fitter_id" INTEGER REFERENCES "fitter"
+	"fitter_id" INTEGER REFERENCES "fitter",
+	"status_id" INTEGER REFERENCES "project_status",
+	"brand" INTEGER REFERENCES "frame_brand",
+	"date_due" TEXT
+	);
+	
+CREATE TABLE "project_status" (
+	"id" SERIAL PRIMARY KEY,
+	"consult" BOOLEAN DEFAULT FALSE,
+	"fit" BOOLEAN DEFAULT FALSE,
+	"design" BOOLEAN DEFAULT FALSE,
+	"waiting_approval" BOOLEAN DEFAULT FALSE,
+	"componenets_on_order" BOOLEAN DEFAULT FALSE,
+	"tubes_on_order" BOOLEAN DEFAULT FALSE,
+	"build" BOOLEAN DEFAULT FALSE,
+	"ready_for_paint" BOOLEAN DEFAULT FALSE,
+	"at_paint" BOOLEAN DEFAULT FALSE,
+	"quality_check" BOOLEAN DEFAULT FALSE,
+	"final_fit" BOOLEAN DEFAULT FALSE,
+	"assemble" BOOLEAN DEFAULT FALSE,
+	"completed" BOOLEAN DEFAULT FALSE,
+	"final_transaction" BOOLEAN DEFAULT FALSE	
+	);
+	
+CREATE TABLE "frame_brand" (
+	"id" SERIAL PRIMARY KEY,
+	"cake" BOOLEAN,
+	"peacock_groove" BOOLEAN,
+	"other" TEXT
 	);
 
 CREATE TABLE "rider_metrix" (
@@ -79,7 +105,7 @@ CREATE TABLE "rider_metrix" (
 	"project_id" INTEGER REFERENCES "project"
 );
 
-CREATE TABLE "erlevant_current_bike" (
+CREATE TABLE "relevant_current_bike" (
 	"id" SERIAL PRIMARY KEY,
 	"saddle_height" TEXT NOT NULL,
 	"saddle_offset" TEXT NOT NULL,
