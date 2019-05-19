@@ -14,11 +14,12 @@ class NewCustomer extends Component {
     super(props);
     this.state = {
       editing: false,
-      customers_full_name: '',
+      full_name: '',
       pro_nouns: '',
       email: '',
       phone_number: '',
-      customer_notes: '',
+      cust_notes: '',
+      date_activated: date
     }
   }
 
@@ -43,46 +44,46 @@ class NewCustomer extends Component {
     }
   }
 
-  //saga post to update/edit current customer info
-  updateCust = (event) => {
-    console.log('update cust');
-    const action = {
-      type: 'UPDATE_CUSTOMER',
-      payload: this.state,
-    };
-    this.props.dispatch(action);
-    this.setState({
-      customers_full_name: '',
-      pro_nouns: '',
-      email: '',
-      phone_number: '',
-      customer_notes: '',
-    })
-    this.props.history.push('/home');
-  }
+  // //saga post to update/edit current customer info
+  // updateCust = (event) => {
+  //   console.log('update cust');
+  //   const action = {
+  //     type: 'UPDATE_CUSTOMER',
+  //     payload: this.state,
+  //   };
+  //   this.props.dispatch(action);
+  //   this.setState({
+  //     customers_full_name: '',
+  //     pro_nouns: '',
+  //     email: '',
+  //     phone_number: '',
+  //     customer_notes: '',
+  //   })
+  //   this.props.history.push('/home');
+  // }
 
-  //Send to saga to create a customer in the data base
-  addCustomer = (event) => {
-    console.log('add cust');
-    const action = {
-      type: 'SET_CUSTOMER',
-      payload: this.state,
-    };
-    this.props.dispatch(action);
-    this.setState({
-      customers_full_name: '',
-      pro_nouns: '',
-      email: '',
-      phone_number: '',
-      customer_notes: '',
-    })
-    this.props.history.push('/home');
-  }
+  // //Send to saga to create a customer in the data base
+  // addCustomer = (event) => {
+  //   console.log('add cust');
+  //   const action = {
+  //     type: 'SET_CUSTOMER',
+  //     payload: this.state,
+  //   };
+  //   this.props.dispatch(action);
+  //   this.setState({
+  //     customers_full_name: '',
+  //     pro_nouns: '',
+  //     email: '',
+  //     phone_number: '',
+  //     customer_notes: '',
+  //   })
+  //   this.props.history.push('/home');
+  // }
 
   // // input state update
   handleChange = (key) => (event) => {
     const action = {
-        type: 'SET_CUSTOMER',
+        type: 'ADD_CUSTOMER',
         payload: { key: key, value: event.target.value },
     };
     console.log('sending to project saga')
@@ -111,7 +112,7 @@ class NewCustomer extends Component {
             margin="normal"
             variant="outlined"
             type="text"
-            value={this.state.customers_full_name}
+            value={this.state.full_name}
             onChange={this.handleChange}
           />
           <TextField

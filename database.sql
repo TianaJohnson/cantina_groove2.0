@@ -36,7 +36,7 @@ CREATE TABLE "client_contact_info" (
 	"phone_number" VARCHAR (20) NOT NULL,
 	"cust_notes" VARCHAR (1000),
 	"is_active" BOOLEAN DEFAULT TRUE,
-	"date_activated" DATE NOT NULL DEFAULT CURRENT_DATE);
+	"date_activated" DATE NOT NULL DEFAULT 'CURRENT_DATE');
 	
 CREATE TABLE "builder"(
 	"id" SERIAL PRIMARY KEY,

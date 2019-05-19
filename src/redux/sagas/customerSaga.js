@@ -5,7 +5,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 //Create
 function* addCustomer(action) {
     try { 
-      yield axios.post('/intake', action.payload);
+      yield axios.post('/customer', action.payload);
       yield alert('Customer added.')
       yield put({ type: 'FETCH_CUSTOMER' });
     } catch (error) {
@@ -17,7 +17,7 @@ function* addCustomer(action) {
   //read
   function* fetchCustomer(action) {
     try{
-    const responseFromServer = yield axios.get('/intake');
+    const responseFromServer = yield axios.get('/customer');
     yield put({ type: 'SET_CUSTOMER', payload: responseFromServer.data});
     console.log('response from server is:',responseFromServer.data)
   } catch (error) {
@@ -28,7 +28,7 @@ function* addCustomer(action) {
 //Read
 function* fetchFocusCustomer(action) {
   try{
-  const responseFromServer = yield axios.get(`/intake/${action.payload}`);
+  const responseFromServer = yield axios.get(`/customer/${action.payload}`);
   yield put({type: 'SET_FOCUS', payload: responseFromServer.data});
   console.log('response from server is:',responseFromServer.data)
 } catch (error) {
@@ -40,7 +40,7 @@ function* fetchFocusCustomer(action) {
 function* updateCustomer(action) {
   console.log('In saga Put', action.payload)
   try {
-    yield axios.put(`/intake/update/${action.payload.id}`, action.payload);
+    yield axios.put(`/customer/update/${action.payload.id}`, action.payload);
     yield alert('Customer Info Updated.')
     yield put({ type: 'FETCH_CUSTOMER' });
   }catch(error){
@@ -53,7 +53,7 @@ function* updateCustomer(action) {
 function* archiveCustomer(action) {
   console.log('In saga archive Put', action.payload.id)
   try {
-    yield axios.put(`/intake/archive/${action.payload.id}`, action.payload);
+    yield axios.put(`/customer/archive/${action.payload.id}`, action.payload);
     yield alert('Customer Deleted.')
     yield put({ type: 'FETCH_CUSTOMER' });
   }catch(error){
