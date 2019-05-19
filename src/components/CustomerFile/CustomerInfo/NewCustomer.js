@@ -65,7 +65,7 @@ class NewCustomer extends Component {
   addCustomer = (event) => {
     console.log('add cust');
     const action = {
-      type: 'ADD_CUSTOMER',
+      type: 'SET_CUSTOMER',
       payload: this.state,
     };
     this.props.dispatch(action);
@@ -80,36 +80,14 @@ class NewCustomer extends Component {
   }
 
   // // input state update
-  handleChangeName = (event) => {
-    console.log('name')
-    this.setState({
-      customers_full_name: event.target.value,
-    })
-  }
-  handleChangePro = (event) => {
-    console.log('pronouns')
-    this.setState({
-      pro_nouns: event.target.value,
-    })
-  }
-  handleChangeEmail = (event) => {
-    console.log('email')
-    this.setState({
-      email: event.target.value,
-    })
-  }
-  handleChangePhone = (event) => {
-    console.log('phone')
-    this.setState({
-      phone_number: event.target.value,
-    })
-  }
-  handleChangeNotes = (event) => {
-    console.log('notes')
-    this.setState({
-      customer_notes: event.target.value,
-    })
-  }
+  handleChange = (key) => (event) => {
+    const action = {
+        type: 'SET_CUSTOMER',
+        payload: { key: key, value: event.target.value },
+    };
+    console.log('sending to project saga')
+    this.props.dispatch(action);
+}
 
 
   render() {
@@ -134,7 +112,7 @@ class NewCustomer extends Component {
             variant="outlined"
             type="text"
             value={this.state.customers_full_name}
-            onChange={this.handleChangeName}
+            onChange={this.handleChange}
           />
           <TextField
             style={{ margin: 10 }}
@@ -144,7 +122,7 @@ class NewCustomer extends Component {
             variant="outlined"
             margin="normal"
             value={this.state.pro_nouns}
-            onChange={this.handleChangePro}
+            onChange={this.handleChange}
           />
           <TextField
             style={{ margin: 10 }}
@@ -155,7 +133,7 @@ class NewCustomer extends Component {
             variant="outlined"
             margin="normal"
             value={this.state.email}
-            onChange={this.handleChangeEmail}
+            onChange={this.handleChange}
           />
           <TextField
             style={{ margin: 10 }}
@@ -165,7 +143,7 @@ class NewCustomer extends Component {
             variant="outlined"
             margin="normal"
             value={this.state.phone_number}
-            onChange={this.handleChangePhone}
+            onChange={this.handleChange}
           />
           <TextField 
             // style={{ margin: 10 }}
@@ -177,7 +155,7 @@ class NewCustomer extends Component {
             multiline rows="8"
             fullWidth
             value={this.state.customer_notes}
-            onChange={this.handleChangeNotes}
+            onChange={this.handleChange}
           />
           {
             this.state.editing ?

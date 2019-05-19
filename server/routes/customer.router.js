@@ -16,12 +16,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
-        const queryText = `INSERT INTO ""
-                     ("customers_full_name", 
+        const queryText = `INSERT INTO "client_contact_info"
+                     ("full_name", 
                       "pro_nouns", 
                       "email",
                       "phone_number", 
-                      "customer_notes") 
+                      "cust_notes",
+                      "is_active",
+                      "date_activate") 
                       VALUES ($1, $2, $3, $4, $5) RETURNING "id";`;
         pool.query(queryText, [req.body.customers_full_name,
         req.body.pro_nouns,
@@ -41,5 +43,10 @@ router.post('/', (req, res, next) => {
                 }).catch(error => {
                     res.sendStatus(500);
                 })
+            
+            })
+        }
+    })
+        
 
 module.exports = router;
