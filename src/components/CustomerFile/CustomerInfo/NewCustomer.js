@@ -19,7 +19,7 @@ class NewCustomer extends Component {
       email: '',
       phone_number: '',
       cust_notes: '',
-      date_activated: date
+      date_activated: '',
     }
   }
 
@@ -104,6 +104,7 @@ class NewCustomer extends Component {
         <form className="form_newCust" >
         <br/>
           <TextField
+          // customer name intake
             style={{ margin: 10 }}
             className="new-cust-intake"
             id="outlined-name"
@@ -116,6 +117,7 @@ class NewCustomer extends Component {
             onChange={this.handleChange}
           />
           <TextField
+          // customers prefered pro-nouns
             style={{ margin: 10 }}
             className="new-cust-intake"
             id="outline-pronouns"
@@ -126,6 +128,7 @@ class NewCustomer extends Component {
             onChange={this.handleChange}
           />
           <TextField
+          // customers email contact
             style={{ margin: 10 }}
             className="new-cust-intake"
             id="outline-email"
@@ -137,6 +140,7 @@ class NewCustomer extends Component {
             onChange={this.handleChange}
           />
           <TextField
+          // customers phone number
             style={{ margin: 10 }}
             className="new-cust-intake"
             id="outline-phonenumber"
@@ -147,6 +151,7 @@ class NewCustomer extends Component {
             onChange={this.handleChange}
           />
           <TextField 
+          // customer notes
             // style={{ margin: 10 }}
             className="new-cust-intake"
             id="outline-notes"
@@ -156,6 +161,18 @@ class NewCustomer extends Component {
             multiline rows="8"
             fullWidth
             value={this.state.customer_notes}
+            onChange={this.handleChange}
+          />
+          <TextField 
+          // date customer file was created
+            // style={{ margin: 10 }}
+            className="new-cust-intake"
+            id="outline-date"
+            label="date"
+            variant="outlined"
+            margin="normal"
+            fullWidth
+            value={this.state.date}
             onChange={this.handleChange}
           />
           {
