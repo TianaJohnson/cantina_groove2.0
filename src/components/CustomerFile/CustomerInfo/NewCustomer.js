@@ -81,12 +81,13 @@ class NewCustomer extends Component {
   // }
 
   // // input state update
+  //sends to saga
   handleChange = (key) => (event) => {
     const action = {
         type: 'ADD_CUSTOMER',
         payload: { key: key, value: event.target.value },
     };
-    console.log('sending to project saga')
+    console.log('sending to customer saga')
     this.props.dispatch(action);
 }
 

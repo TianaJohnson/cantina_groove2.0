@@ -5,14 +5,15 @@ import React from 'react';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-const FrameInfo = () => (
+const CustomerFile = () => (
   <div>
     <div>
       <p>
-        MF Frame intake info form
+        Customer File Home Base
+        Shows any and all projects attached to custromer
       </p>
     </div>
   </div>
 );
 
-export default FrameInfo;
+export default CustomerFile;
