@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import './NewCustomer.css';
 
 
+
 class NewCustomer extends Component {
 
   // state
@@ -62,23 +63,25 @@ class NewCustomer extends Component {
   //   this.props.history.push('/home');
   // }
 
-  // //Send to saga to create a customer in the data base
-  // addCustomer = (event) => {
-  //   console.log('add cust');
-  //   const action = {
-  //     type: 'SET_CUSTOMER',
-  //     payload: this.state,
-  //   };
-  //   this.props.dispatch(action);
-  //   this.setState({
-  //     customers_full_name: '',
-  //     pro_nouns: '',
-  //     email: '',
-  //     phone_number: '',
-  //     customer_notes: '',
-  //   })
-  //   this.props.history.push('/home');
-  // }
+  //Send to saga to create a customer in the data base
+  addCustomer = (event) => {
+    console.log('add cust');
+    const action = {
+      type: 'ADD_CUSTOMER',
+      payload: this.state,
+    };
+    this.props.dispatch(action);
+    this.setState({
+      full_name: '',
+      pro_nouns: '',
+      email: '',
+      phone_number: '',
+      customer_notes: '',
+      cust_notes: '',
+      date_activated: '',
+    })
+    this.props.history.push('/home');
+  }
 
   // // input state update
   //sends to saga
