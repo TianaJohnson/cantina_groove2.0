@@ -80,7 +80,7 @@ class NewCustomer extends Component {
       cust_notes: '',
       date_activated: '',
     })
-    this.props.history.push('/home');
+    this.props.history.push(`/file/:id`);
   }
 
   // // input state update
