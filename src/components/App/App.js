@@ -17,6 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import NewCustomer from'../CustomerFile/CustomerInfo/NewCustomer';
+// need to import cust file page/ already a pro rout
 
 import './App.css';
 
@@ -61,6 +62,11 @@ class App extends Component {
               path="/newcustomer"
               component={NewCustomer}
             />
+            {/* <ProtectedRoute
+              exact
+              path="/file/:id"
+              component={CustomerToolBar}
+            /> */}
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

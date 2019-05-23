@@ -32,18 +32,18 @@ class NewCustomer extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const prevCust = prevProps.reduxStore.addCust.customerFocusReducer;
-    const upCust = this.props.reduxStore.addCust.customerFocusReducer;
-    if (upCust !== prevCust) {
-      this.setState({
-        ...upCust,
-        editing: true,
-      })
-      console.log('did mount', upCust);
-      // this.loadState(upCust);
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   const prevCust = prevProps.reduxStore.addCust.customerFocusReducer;
+  //   const upCust = this.props.reduxStore.addCust.customerFocusReducer;
+  //   if (upCust !== prevCust) {
+  //     this.setState({
+  //       ...upCust,
+  //       editing: true,
+  //     })
+  //     console.log('did mount', upCust);
+  //     // this.loadState(upCust);
+  //   }
+  // }
 
   // //saga post to update/edit current customer info
   // updateCust = (event) => {
@@ -76,22 +76,32 @@ class NewCustomer extends Component {
       pro_nouns: '',
       email: '',
       phone_number: '',
-      customer_notes: '',
       cust_notes: '',
       date_activated: '',
     })
     this.props.history.push(`/file/:id`);
   }
 
+  // handleChangePro = (event) => {
+  //   console.log('pronouns')
+  //   this.setState({
+  //     pro_nouns: event.target.value,
+  //   })
+  // }
+
   // // input state update
   //sends to saga
-  handleChange = (key) => (event) => {
-    const action = {
-        type: 'ADD_CUSTOMER',
-        payload: { key: key, value: event.target.value },
-    };
-    console.log('sending to customer saga')
-    this.props.dispatch(action);
+//   handleChange = (key) => (event) => {
+//     const action = {
+//         type: 'ADD_CUSTOMER',
+//         payload: { key: key, value: event.target.value },
+//     };
+//     console.log('sending to customer saga')
+//     this.props.dispatch(action);
+// }
+
+handleChange = ({ target: { name, value } }) => {
+  this.setState({ [name]: value })
 }
 
 
@@ -112,7 +122,8 @@ class NewCustomer extends Component {
             style={{ margin: 10 }}
             className="new-cust-intake"
             id="outlined-name"
-            label="Name"
+            lable="Name"
+            name="name"
             placeholder="Full Name"
             margin="normal"
             variant="outlined"

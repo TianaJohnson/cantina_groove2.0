@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
  * POST route template
  */
 // create new customer
-router.post('/', (req, res, next) => {
+router.post('/customer', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
         const queryText = `INSERT INTO "client_contact_info"
@@ -24,12 +24,14 @@ router.post('/', (req, res, next) => {
                       "cust_notes",
                       "is_active",
                       "date_activate") 
-                      VALUES ($1, $2, $3, $4, $5) RETURNING "id";`;
-        pool.query(queryText, [req.body.customers_full_name,
+                      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id";`;
+        pool.query(queryText, [req.body.full_name,
         req.body.pro_nouns,
         req.body.email,
         req.body.phone_number,
-        req.body.customer_notes])
+        req.body.cust_notes,
+        rec.body.is_active,
+        rec.body.date_activated])
             .then((results) => {
                 // Insert empty project for new customer
                 const anotherQuery = `INSERT INTO "project"
