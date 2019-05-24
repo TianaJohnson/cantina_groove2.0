@@ -184,6 +184,7 @@ handleChange = ({ target: { name, value } }) => {
             className="new-cust-intake"
             id="outline-date"
             label="date"
+            type = "date"
             variant="outlined"
             margin="normal"
             fullWidth
