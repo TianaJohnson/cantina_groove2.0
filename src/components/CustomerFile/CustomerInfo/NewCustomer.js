@@ -79,7 +79,7 @@ class NewCustomer extends Component {
       cust_notes: '',
       date_activated: '',
     })
-    this.props.history.push(`/file/:id`);
+    this.props.history.push(`home`);
   }
 
   // handleChangePro = (event) => {
