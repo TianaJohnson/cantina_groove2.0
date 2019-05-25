@@ -100,6 +100,9 @@ class NewCustomer extends Component {
 //     this.props.dispatch(action);
 // }
 
+
+//try a diffrent code...
+
 handleChange = ({ target: { name, value } }) => {
   this.setState({ [name]: value })
 }
