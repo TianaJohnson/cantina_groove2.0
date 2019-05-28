@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
  * POST route template
  */
 // create new customer
-router.post('/customer', (req, res, next) => {
+router.post('/', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
         const queryText = `INSERT INTO "client_contact_info"
@@ -30,8 +30,8 @@ router.post('/customer', (req, res, next) => {
         req.body.email,
         req.body.phone_number,
         req.body.cust_notes,
-        rec.body.is_active,
-        rec.body.date_activated])
+        req.body.is_active,
+        req.body.date_activated])
             .then((results) => {
                 // Insert empty project for new customer
                 const anotherQuery = `INSERT INTO "project"
