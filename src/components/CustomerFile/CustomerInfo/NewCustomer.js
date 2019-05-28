@@ -99,9 +99,12 @@ class NewCustomer extends Component {
 //     console.log('sending to customer saga')
 //     this.props.dispatch(action);
 // }
+
+
+// This needs to be messed with a bit to get working
 handleChange = (key) => (event) => {
   const action = {
-      type: 'SET_PROJECT_PROPERTY',
+      type: 'SET_CUSTOMER',
       payload: { key: key, value: event.target.value },
   };
   console.log('sending to project saga')
