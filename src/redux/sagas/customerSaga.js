@@ -6,8 +6,8 @@ import { takeLatest, put } from 'redux-saga/effects';
 function* addCustomer(action) {
     try { 
       yield axios.post('/customer', action.payload);
-      yield alert('Customer added.')
-      yield put({ type: 'FETCH_CUSTOMER' });
+      // yield alert('Customer added.')
+      // yield put({ type: 'FETCH_CUSTOMER' });
     } catch (error) {
       console.log('Error with add customer:', error);
     }
