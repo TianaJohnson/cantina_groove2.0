@@ -103,8 +103,14 @@ class NewCustomer extends Component {
 
 //try a diffrent code...
 
-handleChange = ({ target: { name, value } }) => {
-  this.setState({ [name]: value })
+// handleChange = ({ target: { name, value } }) => {
+//   this.setState({ [name]: value })
+// }
+handleChange = (event) => {
+  console.log('notes')
+  this.setState({
+    full_name: event.target.value,
+  })
 }
 
 
@@ -125,12 +131,9 @@ handleChange = ({ target: { name, value } }) => {
             style={{ margin: 10 }}
             className="new-cust-intake"
             id="outlined-name"
-            lable="Name"
-            name="name"
-            placeholder="Full Name"
+            label="Name"
             margin="normal"
             variant="outlined"
-            type="text"
             value={this.state.full_name}
             onChange={this.handleChange}
           />
@@ -151,7 +154,6 @@ handleChange = ({ target: { name, value } }) => {
             className="new-cust-intake"
             id="outline-email"
             label="email"
-            placeholder="email address"
             variant="outlined"
             margin="normal"
             value={this.state.email}
