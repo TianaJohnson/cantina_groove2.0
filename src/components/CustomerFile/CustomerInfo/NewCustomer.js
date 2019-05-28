@@ -99,6 +99,14 @@ class NewCustomer extends Component {
 //     console.log('sending to customer saga')
 //     this.props.dispatch(action);
 // }
+handleChange = (key) => (event) => {
+  const action = {
+      type: 'SET_PROJECT_PROPERTY',
+      payload: { key: key, value: event.target.value },
+  };
+  console.log('sending to project saga')
+  this.props.dispatch(action);
+}
 
 
 //try a diffrent code...
@@ -106,12 +114,12 @@ class NewCustomer extends Component {
 // handleChange = ({ target: { name, value } }) => {
 //   this.setState({ [name]: value })
 // }
-handleChange = (event) => {
-  console.log('notes')
-  this.setState({
-    full_name: event.target.value,
-  })
-}
+// handleChange = (event) => {
+//   console.log('notes')
+//   this.setState({
+//     full_name: event.target.value,
+//   })
+// }
 
 
   render() {
@@ -135,7 +143,7 @@ handleChange = (event) => {
             margin="normal"
             variant="outlined"
             value={this.state.full_name}
-            onChange={this.handleChange}
+            onChange={this.handleChange('full_name')}
           />
           <TextField
           // customers prefered pro-nouns
