@@ -10,20 +10,6 @@ import './NewCustomer.css';
 
 class NewCustomer extends Component {
 
-  // state
-  constructor(props) {
-    super(props);
-    this.state = {
-      editing: false,
-      full_name: '',
-      pro_nouns: '',
-      email: '',
-      phone_number: '',
-      cust_notes: '',
-      date_activated: '',
-    }
-  }
-
   componentDidMount() {
     const id = this.props.match.params.id;
     if (id) {
@@ -45,30 +31,13 @@ class NewCustomer extends Component {
   //   }
   // }
 
-  // //saga post to update/edit current customer info
-  // updateCust = (event) => {
-  //   console.log('update cust');
-  //   const action = {
-  //     type: 'UPDATE_CUSTOMER',
-  //     payload: this.state,
-  //   };
-  //   this.props.dispatch(action);
-  //   this.setState({
-  //     customers_full_name: '',
-  //     pro_nouns: '',
-  //     email: '',
-  //     phone_number: '',
-  //     customer_notes: '',
-  //   })
-  //   this.props.history.push('/home');
-  // }
 
   //Send to saga to create a customer in the data base
   addCustomer = (event) => {
     console.log('add cust');
     const action = {
       type: 'ADD_CUSTOMER',
-      payload: this.state,
+      payload: this.props.reduxStore.customer.customerReducer,
     };
     this.props.dispatch(action);
     this.setState({
@@ -82,29 +51,12 @@ class NewCustomer extends Component {
     this.props.history.push(`home`);
   }
 
-  // handleChangePro = (event) => {
-  //   console.log('pronouns')
-  //   this.setState({
-  //     pro_nouns: event.target.value,
-  //   })
-  // }
-
-  // // input state update
-  //sends to saga
-//   handleChange = (key) => (event) => {
-//     const action = {
-//         type: 'ADD_CUSTOMER',
-//         payload: { key: key, value: event.target.value },
-//     };
-//     console.log('sending to customer saga')
-//     this.props.dispatch(action);
-// }
 
 
 // This needs to be messed with a bit to get working
 handleChange = (key) => (event) => {
   const action = {
-      type: 'SET_CUSTOMER',
+      type: 'SET_CUSTOMER_PROPERTY',
       payload: { key: key, value: event.target.value },
   };
   console.log('sending to project saga')
@@ -112,21 +64,9 @@ handleChange = (key) => (event) => {
 }
 
 
-//try a diffrent code...
-
-// handleChange = ({ target: { name, value } }) => {
-//   this.setState({ [name]: value })
-// }
-// handleChange = (event) => {
-//   console.log('notes')
-//   this.setState({
-//     full_name: event.target.value,
-//   })
-// }
-
 
   render() {
-
+    const customer = this.props.reduxStore.customer.customerReducer;
     return (
       <div className="add_custpage">
       <br/>
@@ -145,7 +85,7 @@ handleChange = (key) => (event) => {
             label="Name"
             margin="normal"
             variant="outlined"
-            value={this.state.full_name}
+            value={customer.full_name}
             onChange={this.handleChange('full_name')}
           />
           <TextField
@@ -156,7 +96,7 @@ handleChange = (key) => (event) => {
             label="pronouns"
             variant="outlined"
             margin="normal"
-            value={this.state.pro_nouns}
+            value={customer.pro_nouns}
             onChange={this.handleChange}
           />
           <TextField
@@ -167,7 +107,7 @@ handleChange = (key) => (event) => {
             label="email"
             variant="outlined"
             margin="normal"
-            value={this.state.email}
+            value={customer.email}
             onChange={this.handleChange}
           />
           <TextField
@@ -178,7 +118,7 @@ handleChange = (key) => (event) => {
             label="Phone Number"
             variant="outlined"
             margin="normal"
-            value={this.state.phone_number}
+            value={customer.phone_number}
             onChange={this.handleChange}
           />
           <TextField 
@@ -191,7 +131,7 @@ handleChange = (key) => (event) => {
             margin="normal"
             multiline rows="8"
             fullWidth
-            value={this.state.customer_notes}
+            value={customer.customer_notes}
             onChange={this.handleChange}
           />
           <TextField 
@@ -199,16 +139,15 @@ handleChange = (key) => (event) => {
             // style={{ margin: 10 }}
             className="new-cust-intake"
             id="outline-date"
-            label="date"
             type = "date"
             variant="outlined"
             margin="normal"
             fullWidth
-            value={this.state.date}
+            value={customer.date}
             onChange={this.handleChange}
           />
           {
-            this.state.editing ?
+            customer.editing ?
               // true
               <Button onClick={this.updateCust}
                 style={{ margin: 10 }}

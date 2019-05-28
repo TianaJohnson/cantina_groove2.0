@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 
 const emptyCustomer = {
+            editing: false,
             full_name: '',
             pro_nouns: '',
             email: '',
@@ -10,27 +11,27 @@ const emptyCustomer = {
             date_created: new Date(),           
 };
 
-const projectReducer = (state = emptyProject, action) => {
+const customerReducer = (state = emptyCustomer, action) => {
     console.log('project reducer');
       switch (action.type) {
-        case 'CLEAR_PROJECT':
-          return emptyProject;
-        case 'SET_PROJECT':
-        if(action.payload && action.payload !== '' && action.payload.project_name) {
+        case 'CLEAR_CUSTOMER':
+          return emptyCustomer;
+        case 'SET_CUSTOMER':
+        if(action.payload && action.payload !== '' && action.payload.full_name) {
           console.log('action.paylod:', action.payload)
           return action.payload;
         }else {
           return state;
         }
         
-        case 'SET_PROJECT_PROPERTY':
-          const propertyToChange = action.payload;
+        case 'SET_CUSTOMER_PROPERTY':
+          const customerToChange = action.payload;
           return {
             ...state,
-            // key is 'project_name'
-            // value is "Ride the lightning"
-            // e.g. state.project_name = "Ride the lightning"
-            [propertyToChange.key]: propertyToChange.value
+            // key is 'full_name'
+            // value is "Ridge Johnson"
+            // e.g. state.full_name = "Ridge Johnson"
+            [customerToChange.key]: customerToChange.value
           }
         default:
         console.log('state:', state)
@@ -39,7 +40,7 @@ const projectReducer = (state = emptyProject, action) => {
     };
 
 export default combineReducers({
-    projectReducer,
+    customerReducer,
 
 })
 
@@ -50,23 +51,23 @@ export default combineReducers({
 
 
 
-  const customerFocusReducer = (state = [], action) => {
-    console.log('CF reducer');
-      switch (action.type) {
-        case 'SET_FOCUS':
-        console.log('action.paylod:', action.payload)
-          return action.payload;
+  // const customerFocusReducer = (state = [], action) => {
+  //   console.log('CF reducer');
+  //     switch (action.type) {
+  //       case 'SET_FOCUS':
+  //       console.log('action.paylod:', action.payload)
+  //         return action.payload;
       
-        default:
-        console.log('state:', state)
-          return state;
-      }
-    };
+  //       default:
+  //       console.log('state:', state)
+  //         return state;
+  //     }
+  //   };
 
-  // user will be on the redux state at:
-  // state.user
-  export default combineReducers({
-    customerReducer,
-    customerFocusReducer,
-  });
-  export {customerReducer};
+  // // user will be on the redux state at:
+  // // state.user
+  // export default combineReducers({
+  //   customerReducer,
+  //   customerFocusReducer,
+  // });
+  // export {customerReducer};
