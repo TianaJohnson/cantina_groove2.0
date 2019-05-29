@@ -97,7 +97,7 @@ handleChange = (key) => (event) => {
             variant="outlined"
             margin="normal"
             value={customer.pro_nouns}
-            onChange={this.handleChange}
+            onChange={this.handleChange('pro_nouns')}
           />
           <TextField
           // customers email contact
@@ -108,7 +108,7 @@ handleChange = (key) => (event) => {
             variant="outlined"
             margin="normal"
             value={customer.email}
-            onChange={this.handleChange}
+            onChange={this.handleChange('email')}
           />
           <TextField
           // customers phone number
@@ -119,7 +119,7 @@ handleChange = (key) => (event) => {
             variant="outlined"
             margin="normal"
             value={customer.phone_number}
-            onChange={this.handleChange}
+            onChange={this.handleChange('phone_number')}
           />
           <TextField 
           // customer notes
@@ -132,7 +132,7 @@ handleChange = (key) => (event) => {
             multiline rows="8"
             fullWidth
             value={customer.customer_notes}
-            onChange={this.handleChange}
+            onChange={this.handleChange('cust_notes')}
           />
           <TextField 
           // date customer file was created
@@ -144,7 +144,7 @@ handleChange = (key) => (event) => {
             margin="normal"
             fullWidth
             value={customer.date}
-            onChange={this.handleChange}
+            onChange={this.handleChange('date_activated')}
           />
           {
             customer.editing ?

@@ -23,7 +23,7 @@ router.post('/', (req, res, next) => {
                       "phone_number", 
                       "cust_notes",
                       "is_active",
-                      "date_activate") 
+                      "date_activated") 
                       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id";`;
         pool.query(queryText, [req.body.full_name,
         req.body.pro_nouns,

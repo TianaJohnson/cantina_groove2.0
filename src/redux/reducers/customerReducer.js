@@ -8,7 +8,7 @@ const emptyCustomer = {
             email: '',
             phone_number: '',
             cust_notes: '',
-            date_created: new Date(),           
+            date_activated: new Date(),           
 };
 
 const customerReducer = (state = emptyCustomer, action) => {
