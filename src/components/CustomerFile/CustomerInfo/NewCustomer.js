@@ -41,7 +41,8 @@ class NewCustomer extends Component {
     };
     this.props.dispatch(action);
     this.setState({
-      full_name: '',
+      first_name: '',
+      last_namr: '',
       pro_nouns: '',
       email: '',
       phone_number: '',
@@ -82,11 +83,24 @@ handleChange = (key) => (event) => {
             style={{ margin: 10 }}
             className="new-cust-intake"
             id="outlined-name"
-            label="Name"
+            label="First Name"
+            placeholder="Required"
             margin="normal"
             variant="outlined"
-            value={customer.full_name}
-            onChange={this.handleChange('full_name')}
+            value={customer.first_name}
+            onChange={this.handleChange('first_name')}
+          />
+          <TextField
+          // customer name intake
+            style={{ margin: 10 }}
+            className="new-cust-intake"
+            id="outlined-name"
+            label="Last Name"
+            placeholder="Required"
+            margin="normal"
+            variant="outlined"
+            value={customer.last_name}
+            onChange={this.handleChange('last_name')}
           />
           <TextField
           // customers prefered pro-nouns

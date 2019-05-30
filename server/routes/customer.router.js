@@ -17,15 +17,17 @@ router.post('/', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
         const queryText = `INSERT INTO "client_contact_info"
-                     ("full_name", 
+                     ("first_name",
+                      "last_name", 
                       "pro_nouns", 
                       "email",
                       "phone_number", 
                       "cust_notes",
                       "is_active",
                       "date_activated") 
-                      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id";`;
-        pool.query(queryText, [req.body.full_name,
+                      VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id";`;
+        pool.query(queryText, [req.body.first_name,
+        req.body.last_name,
         req.body.pro_nouns,
         req.body.email,
         req.body.phone_number,

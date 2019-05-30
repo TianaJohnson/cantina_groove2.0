@@ -3,7 +3,8 @@ import { combineReducers } from 'redux';
 
 const emptyCustomer = {
             editing: false,
-            full_name: '',
+            first_name: '',
+            last_name: '',
             pro_nouns: '',
             email: '',
             phone_number: '',

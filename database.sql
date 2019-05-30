@@ -31,7 +31,8 @@ CREATE TABLE "user_info" (
     
 CREATE TABLE "client_contact_info" (
     "id" SERIAL PRIMARY KEY,
-    "full_name" VARCHAR (100) NOT NULL,
+    "first_name" VARCHAR (100) NOT NULL,
+    "last_name" VARCHAR (100) NOT NULL,
     "pro_nouns" TEXT,
     "email" VARCHAR (200),
     "phone_number" VARCHAR (20) NOT NULL,
