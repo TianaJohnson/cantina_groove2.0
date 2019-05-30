@@ -10,12 +10,11 @@
 .add_card {
     opacity: 0.8;
     height: auto;
-    /* width: 200px; */
     text-align: center;
     margin-left:200px;
     margin-right:200px;
-    /* margin-top: 100px; */
-    /* margin-bottom: 200px; */
+    margin-top: 10px;
+    margin-bottom: 200px;
 }
 .addcust_text {
     font-family: 'Vampiro One', cursive;
@@ -25,4 +24,7 @@
 }
 .new-cust-intake {
     padding:30px;
+    float: left;
+    
 }
+

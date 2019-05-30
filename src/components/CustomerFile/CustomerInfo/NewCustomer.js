@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 // import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import './NewCustomer.css';
 
 
@@ -76,13 +77,14 @@ handleChange = (key) => (event) => {
       <div className="addcust_text">
       <br/>
       New Customer Intake:
+      <div className = "container">
         <form className="form_newCust" >
         <br/>
           <TextField
           // customer name intake
             style={{ margin: 10 }}
             className="new-cust-intake"
-            id="outlined-name"
+            id="outlined-simple-start-adornment"
             label="First Name"
             placeholder="Required"
             margin="normal"
@@ -130,14 +132,26 @@ handleChange = (key) => (event) => {
             className="new-cust-intake"
             id="outline-phonenumber"
             label="Phone Number"
+            placeholder="Required"
             variant="outlined"
             margin="normal"
             value={customer.phone_number}
             onChange={this.handleChange('phone_number')}
           />
+          <TextField
+          // date customer file was created
+            style={{ margin: 10 }}
+            className="new-cust-intake"
+            id="outline-date"
+            type = "date"
+            variant="outlined"
+            margin="normal"
+            value={customer.date}
+            onChange={this.handleChange('date_activated')}
+          />
           <TextField 
           // customer notes
-            // style={{ margin: 10 }}
+            style={{ marginBottom: 30 }}
             className="new-cust-intake"
             id="outline-notes"
             label="notes"
@@ -148,18 +162,8 @@ handleChange = (key) => (event) => {
             value={customer.customer_notes}
             onChange={this.handleChange('cust_notes')}
           />
-          <TextField 
-          // date customer file was created
-            // style={{ margin: 10 }}
-            className="new-cust-intake"
-            id="outline-date"
-            type = "date"
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            value={customer.date}
-            onChange={this.handleChange('date_activated')}
-          />
+          <br/>
+          <div className= "customer_buttons">
           {
             customer.editing ?
               // true
@@ -181,7 +185,9 @@ handleChange = (key) => (event) => {
                 Add Customer
            </Button>
           }
+          </div>
         </form>
+        </div>
         </div>
       </Card>
       <br/>
