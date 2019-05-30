@@ -8,6 +8,7 @@ const emptyCustomer = {
             email: '',
             phone_number: '',
             cust_notes: '',
+            is_active: true,
             date_activated: new Date(),           
 };
 
