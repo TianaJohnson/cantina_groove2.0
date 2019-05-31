@@ -77,7 +77,6 @@ handleChange = (key) => (event) => {
       <div className="addcust_text">
       <br/>
       New Customer Intake:
-      <div className = "container">
         <form className="form_newCust" >
         <br/>
           <TextField
@@ -187,7 +186,6 @@ handleChange = (key) => (event) => {
           }
           </div>
         </form>
-        </div>
         </div>
       </Card>
       <br/>
