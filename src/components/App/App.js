@@ -16,8 +16,8 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-import NewCustomer from'../CustomerFile/CustomerInfo/NewCustomer';
-// need to import cust file page/ already a pro rout
+import NewCustomer from '../CustomerFile/CustomerInfo/NewCustomer';
+import projectDashboard from '../Project/projectDashboard.js';
 
 import './App.css';
 
@@ -61,6 +61,11 @@ class App extends Component {
               exact
               path="/newcustomer"
               component={NewCustomer}
+            />
+            <Route
+              exact
+              path="/project/:id"
+              component={projectDashboard}
             />
             {/* <ProtectedRoute
               exact

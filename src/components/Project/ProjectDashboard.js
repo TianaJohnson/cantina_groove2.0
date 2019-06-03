@@ -8,13 +8,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-import AdminRow from './AdminRow';
 import UserHeader from './../userHeader/userHeader';
+import projectRow from './../Project/projectDashTableRow';
 import './project.css';
 
 // This needs to be updated to reflect the project Dash 
 // admin is a temp from old Cantina. 
-// build out
 
 //Class constructor
 class projectDash extends Component {
@@ -53,8 +52,8 @@ class projectDash extends Component {
      </TableRow>
    </TableHead>
    <TableBody>
-         {this.props.reduxStore.addCust.customerReducer.map(client =>
-           <AdminRow key={client.id} history={this.props.history} client={client}/>
+         {this.props.reduxStore.customer.customerReducer.map(client =>
+           <projectRow key={client.id} history={this.props.history} client={client}/>
          )}
          
        
