@@ -6,12 +6,36 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
+CREATE TABLE "client_contact_info" (
+    "id" SERIAL PRIMARY KEY,
+    "first_name" VARCHAR (100) NOT NULL,
+    "last_name" VARCHAR (100) NOT NULL,
+    "pro_nouns" TEXT,
+    "email" VARCHAR (200),
+    "phone_number" VARCHAR (20) NOT NULL,
+    "cust_notes" VARCHAR (1000),
+    "is_active" BOOLEAN DEFAULT TRUE,
+    "date_activated" DATE NOT NULL DEFAULT CURRENT_DATE);
+
+CREATE TABLE "project"(
+    "id" SERIAL PRIMARY KEY,
+    "client_id" INT REFERENCES "client_contact_info"("id"),
+    "builder_id" INT REFERENCES "builder"("id"),
+    "fitter_id" INT REFERENCES "fitter"("id"),
+    "status_id" INT REFERENCES "project_status"("id"),
+    "brand" INT REFERENCES "frame_brand"("id"),
+    "activation_date" DATE NOT NULL DEFAULT CURRENT_DATE, 
+    "date_due" TEXT,
+	"user_id" INT REFERENCES "user"("id")
+    );
+
+
 CREATE TABLE "user_type" (
     "id" SERIAL PRIMARY KEY,
     "primary_user" BOOLEAN DEFAULT false, 
     "seconday_user" BOOLEAN DEFAULT false,
     "passive_user" BOOLEAN DEFAULT false,
-    "user_id" INTEGER REFERENCES "user"
+    "user_id" INT REFERENCES "user"
     );
 
 CREATE TABLE "user-title" (
@@ -25,44 +49,22 @@ CREATE TABLE "user_info" (
     "id" SERIAL PRIMARY KEY,
     "user-name" VARCHAR NOT NULL,
     "user-pronouns" TEXT,
-    "user-title" INTEGER REFERENCES "user-title",
-    "user-type-id" INTEGER REFERENCES "user_type"
+    "user-title" INT REFERENCES "user-title",
+    "user-type-id" INT REFERENCES "user_type"
     );
-    
-CREATE TABLE "client_contact_info" (
-    "id" SERIAL PRIMARY KEY,
-    "first_name" VARCHAR (100) NOT NULL,
-    "last_name" VARCHAR (100) NOT NULL,
-    "pro_nouns" TEXT,
-    "email" VARCHAR (200),
-    "phone_number" VARCHAR (20) NOT NULL,
-    "cust_notes" VARCHAR (1000),
-    "is_active" BOOLEAN DEFAULT TRUE,
-    "date_activated" DATE NOT NULL DEFAULT CURRENT_DATE);
     
 CREATE TABLE "builder"(
     "id" SERIAL PRIMARY KEY,
-    "title_id" INTEGER REFERENCES "user-title",
-    "user_type" INTEGER REFERENCES "user_type"
+    "title_id" INT REFERENCES "user-title",
+    "user_type" INT REFERENCES "user_type"
     );
     
 CREATE TABLE "fitter" (
     "id" SERIAL PRIMARY KEY,
-    "title_id" INTEGER REFERENCES "user-title",
-    "user_type" INTEGER REFERENCES "user_type"
+    "title_id" INT REFERENCES "user-title",
+    "user_type" INT REFERENCES "user_type"
     );
 
--- needs to be completed 
-CREATE TABLE "project"(
-    "id" SERIAL PRIMARY KEY,
-    "client_id" INTEGER REFERENCES "client_contact_info",
-    "builder_id" INTEGER REFERENCES "builder",
-    "fitter_id" INTEGER REFERENCES "fitter",
-    "status_id" INTEGER REFERENCES "project_status",
-    "brand" INTEGER REFERENCES "frame_brand",
-	"activation_date" DATE NOT NULL DEFAULT CURRENT_DATE, 
-    "date_due" TEXT
-    );
     
 CREATE TABLE "project_status" (
     "id" SERIAL PRIMARY KEY,
@@ -105,7 +107,7 @@ CREATE TABLE "rider_metrix" (
     "shoulder_width_os_to_os" TEXT NOT NULL,
     "cycling_shoe_size" TEXT NOT NULL,
     "distance_toe_to_center_of_cleat" TEXT NOT NULL,
-    "project_id" INTEGER REFERENCES "project"
+    "project_id" INT REFERENCES "project"
 );
 
 CREATE TABLE "relevant_current_bike" (
@@ -126,7 +128,7 @@ CREATE TABLE "relevant_current_bike" (
     "pedal_model/style" TEXT NOT NULL,
     "crank_length" TEXT NOT NULL,
     "q_factor" TEXT NOT NULL,
-    "project_id" INTEGER REFERENCES "project"
+    "project_id" INT REFERENCES "project"
 );
 
 CREATE TABLE "size_cycle_data" (
@@ -147,5 +149,5 @@ CREATE TABLE "size_cycle_data" (
     "pedal_model/style" TEXT NOT NULL,
     "crank_length" TEXT NOT NULL,
     "q_factor" TEXT NOT NULL,
-    "project_id" INTEGER REFERENCES "project"
+    "project_id" INT REFERENCES "project"
 );
