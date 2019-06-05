@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 // import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
+// import OutlinedInput from '@material-ui/core/OutlinedInput';
 import './NewCustomer.css';
 
 
@@ -50,7 +50,7 @@ class NewCustomer extends Component {
       cust_notes: '',
       date_activated: '',
     })
-    this.props.history.push(`/home`);
+    this.props.history.push(`/project/:id`);
   }
 
 

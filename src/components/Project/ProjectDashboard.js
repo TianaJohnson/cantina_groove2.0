@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-import UserHeader from './../userHeader/userHeader';
+// import UserHeader from './../userHeader/userHeader';
 import projectRow from './../Project/projectDashTableRow';
 import './project.css';
 
@@ -30,7 +30,7 @@ class projectDash extends Component {
       <div className="admin_main">
         <Card className="admin_card">
         <div className="admin_text">
-  <UserHeader match={this.props.match} history={this.props.history}/>
+  {/* <UserHeader match={this.props.match} history={this.props.history}/> */}
   <h1>Customers</h1>
   <Button variant="contained"
                color="primary"
