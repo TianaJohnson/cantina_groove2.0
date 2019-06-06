@@ -17,6 +17,12 @@ import './project.css';
 
 //Class constructor
 class projectDash extends Component {
+
+  componentDidMount() {
+    // this.props.dispatch({ type: 'FETCH_FOCUS_CUSTOMER' });
+    // this.custName();
+    this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });    
+}
    
 
   // on click of btn, sends user to new customer page
