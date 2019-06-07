@@ -19,6 +19,8 @@ CREATE TABLE "client_contact_info" (
 
 CREATE TABLE "project"(
     "id" SERIAL PRIMARY KEY,
+	"project_title" VARCHAR (100) NOT NULL,
+	"brief_project_desc" VARCHAR (500),
     "client_id" INT REFERENCES "client_contact_info"("id"),
     "builder_id" INT REFERENCES "builder"("id"),
     "fitter_id" INT REFERENCES "fitter"("id"),

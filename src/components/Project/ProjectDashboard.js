@@ -58,8 +58,9 @@ class projectDash extends Component {
      </TableRow>
    </TableHead>
    <TableBody>
-         {this.props.reduxStore.customer.customerReducer.map(client =>
-           <projectRow key={client.id} history={this.props.history} client={client}/>
+     {/* not  a function  ugh */}
+         {/* {this.props.reduxStore.customer.customerReducer.map(client =>
+           <projectRow key={client.id} history={this.props.history} client={client}/> */}
          )}
          
        

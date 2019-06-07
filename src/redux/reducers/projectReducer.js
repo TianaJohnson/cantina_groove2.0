@@ -2,33 +2,18 @@ import { combineReducers } from 'redux';
 
 // This needs to be updated 
 
-// const emptyProject = {
-//     customer_name: '',
-//     project_name: '',
-//     brand: '',
-//     deep_custom: false,
-//     project_desc: '',
-//     cust_height: '',
-//     cust_inseam: '',
-//     cust_torso: '',
-//     cust_flex: '',
-//     cust_reach: '',
-//     head_tube: '',
-//     steerer_tube: '',
-//     down_tube: '',
-//     seat_tube: '',
-//     bottom_bracket: '',
-//     seat_stays: '',
-//     chain_stays: '',
-//     drop_outs: '',
-//     brake_type: '',
-//     wheel_size: '',
-//     tire_clearance: '',
-//     progress_status: '',
-//     date_created: new Date(),
-//     projected_due_date: '',
-//     client_id: 0,
-// };
+ const emptyProject = {
+    
+    client_id: '',
+    builder_id: '',
+    fitter_id: '',
+    status_id: '',
+    brand: '',
+    activation_date: '',
+    date_due: '',
+	user_id:'',
+     };
+
 
 const projectReducer = (state = emptyProject, action) => {
 console.log('project reducer');
