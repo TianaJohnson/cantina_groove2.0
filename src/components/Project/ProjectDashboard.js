@@ -47,11 +47,12 @@ class projectDash extends Component {
   </div> 
   
 <Paper>
- <Table className="admin_table">
+ <Table className="project_table">
    <TableHead>
      <TableRow>
+       <TableCell>Project</TableCell>
        <TableCell>Customer Name</TableCell>
-       <TableCell>Phone</TableCell>
+       <TableCell>Status</TableCell>
        <TableCell>Edit Customer Info</TableCell>
        <TableCell>View/Edit</TableCell>
        <TableCell></TableCell>
