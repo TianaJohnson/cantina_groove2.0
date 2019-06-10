@@ -33,9 +33,9 @@ class projectDash extends Component {
   // eventually will display customer name and project file name
   render() {
     return (
-      <div className="admin_main">
-        <Card className="admin_card">
-        <div className="admin_text">
+      <div className="dash_main">
+        <Card className="dash_card">
+        <div className="dash_text">
   {/* <UserHeader match={this.props.match} history={this.props.history}/> */}
   <h1>Customers</h1>
   <Button variant="contained"
