@@ -45,7 +45,7 @@ class projectDash extends Component {
                Add New Customer
                </Button>
   </div> 
-  
+<Card className="admin_table_card">
 <Paper>
  <Table className="project_table">
    <TableHead>
@@ -61,13 +61,14 @@ class projectDash extends Component {
    <TableBody>
      {/* not  a function  ugh */}
          {/* {this.props.reduxStore.customer.customerReducer.map(client =>
-           <projectRow key={client.id} history={this.props.history} client={client}/> */}
-         )}
+           <projectRow key={client.id} history={this.props.history} client={client}/>
+         )} */}
          
        
    </TableBody>
  </Table>
 </Paper>
+</Card>
         </Card>
       </div>
 
