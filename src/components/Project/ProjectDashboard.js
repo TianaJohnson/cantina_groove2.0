@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 // import UserHeader from './../userHeader/userHeader';
-import projectRow from './../Project/projectDashTableRow';
+// import projectRow from './../Project/projectDashTableRow';
 import './project.css';
 
 // This needs to be updated to reflect the project Dash 
@@ -17,6 +17,13 @@ import './project.css';
 
 //Class constructor
 class projectDash extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+        is_active: true,
+    }
+}
 
   componentDidMount() {
     // this.props.dispatch({ type: 'FETCH_FOCUS_CUSTOMER' });
@@ -63,7 +70,35 @@ class projectDash extends Component {
          {/* {this.props.reduxStore.customer.customerReducer.map(client =>
            <projectRow key={client.id} history={this.props.history} client={client}/>
          )} */}
-         
+
+         {/* We are going to try this... */}
+          {/* <TableRow>
+                <TableCell>{this.props.customers_full_name}</TableCell>
+                <TableCell>{this.props.client.phone_number}</TableCell>
+                <TableCell> <Button variant="contained"
+                    size="small"
+                    onClick={this.editCust}
+                    color="primary"
+                    style={{ margin: 10 }}>
+                    Edit
+                </Button></TableCell>
+                <TableCell><Button variant="contained"
+                        color="secondary"
+                        onClick={this.custFile}
+                        style={{ margin: 10 }}>
+                        Customer File
+                </Button></TableCell>
+                <TableCell> 
+                    <Button variant="contained"
+                        color="inherit"
+                        onClick={this.archiveCust}
+                        style={{ margin: 10 }}>
+                        Delete
+                    </Button>
+                </TableCell>
+
+            </TableRow>
+          */}
        
    </TableBody>
  </Table>
