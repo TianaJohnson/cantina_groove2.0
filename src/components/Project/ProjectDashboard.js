@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-// import UserHeader from './../userHeader/userHeader';
+import UserHeader from './../UserHeader/UserHeader';
 // import projectRow from './../Project/projectDashTableRow';
 import './project.css';
 
@@ -43,7 +43,8 @@ class projectDash extends Component {
       <div className="dash_main">
         <Card className="dash_card">
         <div className="dash_text">
-  {/* <UserHeader match={this.props.match} history={this.props.history}/> */}
+          
+  <UserHeader match={this.props.match} history={this.props.history}/>
   <h1>Customers</h1>
   <Button variant="contained"
                color="primary"
@@ -72,33 +73,33 @@ class projectDash extends Component {
          )} */}
 
          {/* We are going to try this... */}
-          {/* <TableRow>
-                <TableCell>{this.props.customers_full_name}</TableCell>
-                <TableCell>{this.props.client.phone_number}</TableCell>
-                <TableCell> <Button variant="contained"
-                    size="small"
-                    onClick={this.editCust}
-                    color="primary"
-                    style={{ margin: 10 }}>
-                    Edit
-                </Button></TableCell>
+          <TableRow>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
+                <TableCell></TableCell>
                 <TableCell><Button variant="contained"
                         color="secondary"
-                        onClick={this.custFile}
+                        // onClick={this.custFile}
                         style={{ margin: 10 }}>
                         Customer File
                 </Button></TableCell>
-                <TableCell> 
-                    <Button variant="contained"
+                    {/* <Button variant="contained"
                         color="inherit"
-                        onClick={this.archiveCust}
+                        // onClick={this.archiveCust}
                         style={{ margin: 10 }}>
                         Delete
-                    </Button>
+                    </Button> */}
+                    <TableCell> <Button variant="contained"
+                    size="small"
+                    // onClick={this.editCust}
+                    color="primary"
+                    style={{ margin: 10 }}>
+                    Edit
+                </Button>
                 </TableCell>
 
             </TableRow>
-          */}
+         
        
    </TableBody>
  </Table>
