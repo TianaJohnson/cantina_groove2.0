@@ -52,6 +52,10 @@ class projectDash extends Component {
                style={{ margin: 10 }}>
                Add New Customer
                </Button>
+               <br/>
+               {/* look into this more\/ */}
+               {/* {JSON.stringify(this.props.customer.customerReducer.first_name)} */}
+
   </div> 
 <Card className="admin_table_card">
 <Paper>
