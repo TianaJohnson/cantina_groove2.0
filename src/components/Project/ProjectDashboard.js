@@ -93,14 +93,14 @@ class projectDash extends Component {
                         style={{ margin: 10 }}>
                         Delete
                     </Button> */}
-                    <TableCell> <Button variant="contained"
+                    {/* <TableCell> <Button variant="contained"
                     size="small"
                     // onClick={this.editCust}
                     color="primary"
                     style={{ margin: 10 }}>
                     Edit
                 </Button>
-                </TableCell> */}
+                </TableCell>  */}
 
             </TableRow>
          
