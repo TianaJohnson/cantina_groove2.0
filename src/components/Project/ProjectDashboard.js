@@ -28,7 +28,7 @@ class projectDash extends Component {
   componentDidMount() {
     // this.props.dispatch({ type: 'FETCH_FOCUS_CUSTOMER' });
     // this.custName();
-    this.props.dispatch({ type: 'FETCH_PROJECT', payload: { id: this.props.match.params.id } });    
+    this.props.dispatch({ type: 'FETCH_CUSTOMER', payload: { id: this.props.match.params.id } });    
 }
    
 
@@ -54,7 +54,7 @@ class projectDash extends Component {
                </Button>
                <br/>
                {/* look into this more\/ */}
-               {/* {JSON.stringify(this.props.customer.customerReducer.first_name)} */}
+               {JSON.stringify(this.props.reduxStore.customer.customerReducer)}
 
   </div> 
 <Card className="admin_table_card">
@@ -71,15 +71,15 @@ class projectDash extends Component {
      </TableRow>
    </TableHead>
    <TableBody>
-     {/* not  a function  ugh */}
-         {/* {this.props.reduxStore.customer.customerReducer.map(client =>
+     {/* At least its something*/}
+         {this.props.reduxStore.customer.customerReducer.map(client =>
            <projectRow key={client.id} history={this.props.history} client={client}/>
-         )} */}
+         )}
 
          {/* We are going to try this... */}
           <TableRow>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
+                {/* <TableCell></TableCell> */}
+                {/* <TableCell></TableCell>
                 <TableCell></TableCell>
                 <TableCell><Button variant="contained"
                         color="secondary"
@@ -100,7 +100,7 @@ class projectDash extends Component {
                     style={{ margin: 10 }}>
                     Edit
                 </Button>
-                </TableCell>
+                </TableCell> */}
 
             </TableRow>
          
