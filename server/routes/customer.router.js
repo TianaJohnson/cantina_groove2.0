@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
  * POST route template
  */
 // create new customer
+
 router.post('/', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
@@ -52,7 +53,7 @@ router.post('/', (req, res, next) => {
         }
     })
 
-
+//unable to fetch from server..
     //This is where I will have to merge the project and customer info
 // or maybe I just do this in the project router....
     router.get('/', (req, res) => {
