@@ -51,6 +51,30 @@ router.post('/', (req, res, next) => {
             })
         }
     })
+
+
+    //This is where I will have to merge the project and customer info
+// or maybe I just do this in the project router....
+    router.get('/', (req, res) => {
+        console.log('in GET ')
+        if (req.isAuthenticated()) {
+            console.log('req.user:', req.user);
+            pool.query(`SELECT * FROM "client_contact_info" 
+                        WHERE "is_active" = TRUE 
+                        ORDER BY "id" DESC;`)
+                .then(results => {
+                    console.log(results.rows)
+                    res.send(results.rows)
+                })
+                .catch(error => {
+                    console.log('Error making SELECT for customer info database:', error);
+                    res.sendStatus(500);
+                });
+        } else {
+            // They are not authenticated.
+            res.sendStatus(403);
+        }
+    });
         
 
 module.exports = router;

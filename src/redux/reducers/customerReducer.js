@@ -13,6 +13,8 @@ import { combineReducers } from 'redux';
 //             date_activated: new Date(),           
 // };
 
+// how to create an empty customer?
+
 const customerReducer = (state = [], action) => {
   console.log('Cust reducer');
     switch (action.type) {
