@@ -54,6 +54,7 @@ router.post('/', (req, res, next) => {
     })
 
 //unable to fetch from server..
+//today I am sick
     //This is where I will have to merge the project and customer info
 // or maybe I just do this in the project router....
     router.get('/', (req, res) => {
