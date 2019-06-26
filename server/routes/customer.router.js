@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
  * POST route template
  */
 // create new customer
-
+//code tonight or tomorrow. Pull yr shit together.
 router.post('/', (req, res, next) => {
     console.log(req.body);
     if (req.isAuthenticated()) {
