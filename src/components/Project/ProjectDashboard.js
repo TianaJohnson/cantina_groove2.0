@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import UserHeader from './../UserHeader/UserHeader';
-import projectRow from './../Project/projectDashTableRow';
+import ProjectRow from './../Project/projectDashTableRow';
 import './project.css';
 
 // This needs to be updated to reflect the project Dash 
@@ -17,7 +17,6 @@ import './project.css';
 
 //Class constructor
 class projectDash extends Component {
-
   constructor(props){
     super(props);
     this.state = {
@@ -30,8 +29,6 @@ class projectDash extends Component {
     // this.custName();
     this.props.dispatch({ type: 'FETCH_CUSTOMER', payload: { id: this.props.match.params.id } });    
 }
-   
-
   // on click of btn, sends user to new customer page
   addNew = () => {
     this.props.history.push('/newcustomer');
@@ -40,75 +37,44 @@ class projectDash extends Component {
   // eventually will display customer name and project file name
   render() {
     return (
-      <div className="dash_main">
-        <Card className="dash_card">
-        <div className="dash_text">
-          
+      <div className="admin_main">
+        <Card className="admin_card">
+        <div className="admin_text">
   <UserHeader match={this.props.match} history={this.props.history}/>
   <h1>Customers</h1>
+  {/* <div class="sharethis-inline-share-buttons"></div> */}
+  {/* ^^^ display share icons */}
+  {/* <QrComponent /> */}
+  {/* ^^^ links to Qr Reader component */}
+  {/* https://www.npmjs.com/package/react-qr-reader */}
   <Button variant="contained"
                color="primary"
                onClick={this.addNew}
                style={{ margin: 10 }}>
                Add New Customer
                </Button>
-               <br/>
-               {/* look into this more\/ */}
-               {JSON.stringify(this.props.reduxStore.customer.customerReducer)}
-
   </div> 
-<Card className="admin_table_card">
 <Paper>
- <Table className="project_table">
+ <Table className="admin_table">
    <TableHead>
      <TableRow>
-       <TableCell>Project</TableCell>
        <TableCell>Customer Name</TableCell>
-       <TableCell>Status</TableCell>
+       <TableCell>Phone</TableCell>
        <TableCell>Edit Customer Info</TableCell>
        <TableCell>View/Edit</TableCell>
        <TableCell></TableCell>
      </TableRow>
    </TableHead>
    <TableBody>
-     {/* At least its something*/}
          {this.props.reduxStore.customer.customerReducer.map(client =>
-           <projectRow key={client.id} history={this.props.history} client={client}/>
+           <ProjectRow key={client.id} history={this.props.history} client={client}/>
          )}
-
-         {/* We are going to try this... */}
-          {/* <TableRow> */}
-                {/* <TableCell>{full_name}</TableCell> */}
-                {/* <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell><Button variant="contained"
-                        color="secondary"
-                        // onClick={this.custFile}
-                        style={{ margin: 10 }}>
-                        Customer File
-                </Button></TableCell>
-                    {/* <Button variant="contained"
-                        color="inherit"
-                        // onClick={this.archiveCust}
-                        style={{ margin: 10 }}>
-                        Delete
-                    </Button> */}
-                    {/* <TableCell> <Button variant="contained"
-                    size="small"
-                    // onClick={this.editCust}
-                    color="primary"
-                    style={{ margin: 10 }}>
-                    Edit
-                </Button>
-                </TableCell>  */}
-
-            {/* </TableRow> */}
          
        
    </TableBody>
  </Table>
 </Paper>
-</Card>
+
         </Card>
       </div>
 
