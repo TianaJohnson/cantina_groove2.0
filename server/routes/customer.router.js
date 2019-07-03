@@ -59,7 +59,7 @@ router.post('/', (req, res, next) => {
 // Mark Them!
     //This is where I will have to merge the project and customer info
 // or maybe I just do this in the project router....
-    router.get('/', (req, res) => {
+    router.get('/existing', (req, res) => {
         console.log('in GET ')
         if (req.isAuthenticated()) {
             console.log('req.user:', req.user);

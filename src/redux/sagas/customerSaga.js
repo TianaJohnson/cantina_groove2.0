@@ -17,7 +17,7 @@ function* addCustomer(action) {
   //read
   function* fetchCustomer(action) {
     try{
-    const responseFromServer = yield axios.get('/customer');
+    const responseFromServer = yield axios.get('/customer/existing');
     yield put({ type: 'SET_CUSTOMER', payload: responseFromServer.data});
     console.log('response from server is:',responseFromServer.data)
   } catch (error) {
