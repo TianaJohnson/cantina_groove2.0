@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import UserHeader from './../UserHeader/UserHeader';
-// import projectRow from './../Project/projectDashTableRow';
+import projectRow from './../Project/projectDashTableRow';
 import './project.css';
 
 // This needs to be updated to reflect the project Dash 
@@ -77,8 +77,8 @@ class projectDash extends Component {
          )}
 
          {/* We are going to try this... */}
-          <TableRow>
-                {/* <TableCell></TableCell> */}
+          {/* <TableRow> */}
+                {/* <TableCell>{full_name}</TableCell> */}
                 {/* <TableCell></TableCell>
                 <TableCell></TableCell>
                 <TableCell><Button variant="contained"
@@ -102,7 +102,7 @@ class projectDash extends Component {
                 </Button>
                 </TableCell>  */}
 
-            </TableRow>
+            {/* </TableRow> */}
          
        
    </TableBody>
