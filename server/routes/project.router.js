@@ -37,15 +37,14 @@ router.put('/:id', (req, res, next) => {
     }
 });
 
-
 router.get('/:id', (req, res) => {
-    console.log('in GET project get id ')
+    console.log('in GET project intake get id ')
     console.log('req.params: project get', req.user.id);
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user.id);
         pool.query(`SELECT * FROM "project"
-                    JOIN "client_contact_info" ON "project"."client_id" = "client_contact_info"."id"
-                    WHERE "project"."client_id" = $1;`, [req.params.id])
+                    JOIN "client_contact_info" ON "project_intake"."client_id" = "client_contact_info"."id"
+                    WHERE "project_intake"."client_id" = $1;`, [req.params.id])
             .then(results => {
                 console.log(results.rows[0])
                 res.send(results.rows[0])

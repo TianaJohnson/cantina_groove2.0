@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -47,6 +47,12 @@ class projectDashTableRow extends Component {
         return (
             <TableRow>
                 <TableCell>{this.props.client.first_name}</TableCell>
+                <TableCell><Button variant="contained"
+                        color="secondary"
+                        onClick={this.custFile}
+                        style={{ margin: 10 }}>
+                        Customer File
+                </Button></TableCell>
             </TableRow>
         )
     }

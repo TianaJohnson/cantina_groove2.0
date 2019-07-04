@@ -17,7 +17,8 @@ import AboutPage from '../AboutPage/AboutPage';
 // import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import NewCustomer from '../CustomerFile/CustomerInfo/NewCustomer';
-import projectDashboard from '../Project/projectDashboard.js';
+import projectDashboard from '../Project/projectDashboard';
+import projectFile from '../Project/projectFile';
 
 import './App.css';
 
@@ -64,14 +65,14 @@ class App extends Component {
             />
             <Route
               exact
-              path="/project/:id"
+              path="/project"
               component={projectDashboard}
             />
-            {/* <ProtectedRoute
+            <ProtectedRoute
               exact
               path="/file/:id"
-              component={CustomerToolBar}
-            /> */}
+              component={projectFile}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

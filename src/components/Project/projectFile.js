@@ -13,4 +13,9 @@ class projectFile extends Component {
         )
     }
 }
-export default connect(mapStateToProps)(pojectFile)
+
+const mapStateToProps = reduxStore => {
+    return { reduxStore: reduxStore };
+}
+
+export default connect(mapStateToProps)(projectFile)

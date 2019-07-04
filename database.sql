@@ -17,7 +17,7 @@ CREATE TABLE "client_contact_info" (
     "is_active" BOOLEAN DEFAULT TRUE,
     "date_activated" DATE NOT NULL DEFAULT CURRENT_DATE);
 
-CREATE TABLE "project_info"(
+CREATE TABLE "project_intake"(
     "id" SERIAL PRIMARY KEY,
 	"project_title" VARCHAR (100) NOT NULL,
 	"brief_project_desc" VARCHAR (500),
