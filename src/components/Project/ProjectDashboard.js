@@ -27,7 +27,8 @@ class projectDash extends Component {
   componentDidMount() {
     // this.props.dispatch({ type: 'FETCH_FOCUS_CUSTOMER' });
     // this.custName();
-    this.props.dispatch({ type: 'FETCH_CUSTOMER', payload: { id: this.props.match.params.id } });    
+    this.props.dispatch({ type: 'FETCH_CUSTOMER', payload: { id: this.props.match.params.id } });  
+    // this.props.dispatch({ type: 'FETCH_PREOJECT', payload: {}})  
 }
   // on click of btn, sends user to new customer page
   addNew = () => {

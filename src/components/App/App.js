@@ -57,7 +57,7 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
-            <ProtectedRoute
+            <Route
               exact
               path="/newcustomer"
               component={NewCustomer}
