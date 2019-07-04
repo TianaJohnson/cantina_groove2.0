@@ -59,11 +59,12 @@ class projectDash extends Component {
  <Table className="admin_table">
    <TableHead>
      <TableRow>
+       <TableCell>Project ID</TableCell>
+       <TableCell>Title</TableCell>
        <TableCell>Customer Name</TableCell>
-       <TableCell>Phone</TableCell>
        <TableCell>Edit Customer Info</TableCell>
        <TableCell>View/Edit</TableCell>
-       <TableCell></TableCell>
+
      </TableRow>
    </TableHead>
    <TableBody>

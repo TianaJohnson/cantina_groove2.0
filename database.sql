@@ -17,7 +17,7 @@ CREATE TABLE "client_contact_info" (
     "is_active" BOOLEAN DEFAULT TRUE,
     "date_activated" DATE NOT NULL DEFAULT CURRENT_DATE);
 
-CREATE TABLE "project"(
+CREATE TABLE "project_info"(
     "id" SERIAL PRIMARY KEY,
 	"project_title" VARCHAR (100) NOT NULL,
 	"brief_project_desc" VARCHAR (500),
@@ -47,7 +47,7 @@ CREATE TABLE "user-title" (
     "client" BOOLEAN DEFAULT false
     );
     
-CREATE TABLE "user_info" (
+CREATE TABLE "user_intake" (
     "id" SERIAL PRIMARY KEY,
     "user-name" VARCHAR NOT NULL,
     "user-pronouns" TEXT,
@@ -109,7 +109,7 @@ CREATE TABLE "rider_metrix" (
     "shoulder_width_os_to_os" TEXT NOT NULL,
     "cycling_shoe_size" TEXT NOT NULL,
     "distance_toe_to_center_of_cleat" TEXT NOT NULL,
-    "project_id" INT REFERENCES "project"
+    "project_id" INT REFERENCES "project_intake"
 );
 
 CREATE TABLE "relevant_current_bike" (
@@ -130,7 +130,7 @@ CREATE TABLE "relevant_current_bike" (
     "pedal_model/style" TEXT NOT NULL,
     "crank_length" TEXT NOT NULL,
     "q_factor" TEXT NOT NULL,
-    "project_id" INT REFERENCES "project"
+    "project_id" INT REFERENCES "project_intake"
 );
 
 CREATE TABLE "size_cycle_data" (
@@ -151,5 +151,5 @@ CREATE TABLE "size_cycle_data" (
     "pedal_model/style" TEXT NOT NULL,
     "crank_length" TEXT NOT NULL,
     "q_factor" TEXT NOT NULL,
-    "project_id" INT REFERENCES "project"
+    "project_id" INT REFERENCES "project_intake"
 );
