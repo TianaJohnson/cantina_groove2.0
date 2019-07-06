@@ -37,7 +37,7 @@ router.post('/', (req, res, next) => {
         req.body.date_activated])
             .then((results) => {
                 // Insert empty project for new customer
-                const anotherQuery = `INSERT INTO "project"
+                const anotherQuery = `INSERT INTO "project_intake"
                      ("client_id", 
                       "user_id") 
                       VALUES ($1, $2);`;
