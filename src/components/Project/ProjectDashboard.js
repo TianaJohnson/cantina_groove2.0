@@ -13,7 +13,9 @@ import ProjectRow from './../Project/projectDashTableRow';
 import './project.css';
 
 // This needs to be updated to reflect the project Dash 
-// admin is a temp from old Cantina. 
+// admin is a temp from old Cantina.
+// gunna get back on it, twas my birthday
+ 
 
 //Class constructor
 class projectDash extends Component {
