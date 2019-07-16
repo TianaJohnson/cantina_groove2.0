@@ -14,8 +14,7 @@ import './project.css';
 
 // This needs to be updated to reflect the project Dash 
 // admin is a temp from old Cantina.
-// gunna get back on it, twas my birthday
-// its no always going to be this way
+// figure out whats up with the git/put
 
 //Class constructor
 class projectDash extends Component {
