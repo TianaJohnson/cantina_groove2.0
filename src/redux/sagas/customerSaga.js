@@ -12,7 +12,7 @@ function* addCustomer(action) {
       console.log('Error with add customer:', error);
     }
   }
-
+// commit quick
   //fetch saga = works with customerReducer
   //read
   function* fetchCustomer(action) {
