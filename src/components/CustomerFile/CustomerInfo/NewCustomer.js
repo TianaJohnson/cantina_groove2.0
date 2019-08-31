@@ -19,18 +19,18 @@ class NewCustomer extends Component {
     }
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   const prevCust = prevProps.reduxStore.addCust.customerFocusReducer;
-  //   const upCust = this.props.reduxStore.addCust.customerFocusReducer;
-  //   if (upCust !== prevCust) {
-  //     this.setState({
-  //       ...upCust,
-  //       editing: true,
-  //     })
-  //     console.log('did mount', upCust);
-  //     // this.loadState(upCust);
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    const prevCust = prevProps.reduxStore.addCust.customerFocusReducer;
+    const upCust = this.props.reduxStore.addCust.customerFocusReducer;
+    if (upCust !== prevCust) {
+      this.setState({
+        ...upCust,
+        editing: true,
+      })
+      console.log('did mount', upCust);
+      // this.loadState(upCust);
+    }
+  }
 
 
   //Send to saga to create a customer in the data base
@@ -54,7 +54,7 @@ class NewCustomer extends Component {
   }
 
 
-
+// 
 // This needs to be messed with a bit to get working
 handleChange = (key) => (event) => {
   const action = {
